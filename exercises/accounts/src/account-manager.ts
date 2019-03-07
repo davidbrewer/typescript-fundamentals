@@ -10,7 +10,7 @@ export interface IAdmin extends IUser {
 
 
 export class AccountManager {
-  users = new Array();
+  users: IUser[] = new Array();
 
   /**
    * Create a new user account
