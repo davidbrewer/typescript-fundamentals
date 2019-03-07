@@ -48,9 +48,12 @@ export class Dealer {
 
   static getNewDeck(): Deck {
     let deck: Deck = []
+    let suitCount = Object.keys(Suit).length / 2
+    let numCount = Object.keys(CardNumber).length / 2
+
     let suit: number, num: number;
-    for (suit = 0; suit <= 3; suit++) {
-      for (num = 0; num <= 12; num++) {
+    for (suit = 0; suit < suitCount; suit++) {
+      for (num = 0; num < numCount; num++) {
         deck.push([suit, num]);
       }
     }
