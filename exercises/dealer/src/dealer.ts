@@ -47,13 +47,13 @@ export class Dealer {
   }
 
   static getNewDeck(): Deck {
-    let deck: Deck = []
-    let suitCount = Object.keys(Suit).length / 2
-    let numCount = Object.keys(CardNumber).length / 2
+    let deck: Deck = [];
+    let suitCount = Object.keys(Suit).length / 2;
+    let numCount = Object.keys(CardNumber).length / 2;
 
     let suit: number, num: number;
-    for (suit = 0; suit < suitCount; suit++) {
-      for (num = 0; num < numCount; num++) {
+    for (let suit = 0; suit < suitCount; suit++) {
+      for (let num = 0; num < numCount; num++) {
         deck.push([suit, num]);
       }
     }
@@ -62,15 +62,18 @@ export class Dealer {
 
   // Deals size number of cards
   dealHand(size: number): Card[] {
+    // alternate:
+    // return this.deck.splice(0, size)
+
     if (size < 1) {
-      throw "Oops, can't deal negative cards";
+      throw new Error("Oops, can't deal negative cards");
     }
 
     let hand: Card[] = [];
     while (hand.length < size) {
       let card = this.deck.shift();
       if (!card) {
-        throw "Oops, ran out of cards";
+        throw new Error("Oops, ran out of cards");
       }
       hand.push(card);
     }
